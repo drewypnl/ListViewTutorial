@@ -13,13 +13,13 @@ using Java.Lang;
 
 namespace listViewTutorial
 {
-    class MyListViewAdapter : BaseAdapter<string>
+    class MyListViewAdapter : BaseAdapter<Person>
 
     {
-        private List<string> mItems;
+        private List<Person> mItems;
         private Context mContext;
 
-        public MyListViewAdapter(Context context, List<string> items)
+        public MyListViewAdapter(Context context, List<Person> items)
         {
             mItems = items;
             mContext = context;
@@ -35,7 +35,7 @@ namespace listViewTutorial
             return position;
         }
 
-        public override string this[int position]
+        public override Person this[int position]
         {
             get { return mItems[position]; }
         }
@@ -50,8 +50,17 @@ namespace listViewTutorial
 
             }
 
-            TextView txtName = row.FindViewById<TextView>(Resource.Id.txtName);
-            txtName.Text = mItems[position];
+            TextView txtFirstName = row.FindViewById<TextView>(Resource.Id.txtFirstName);
+            txtFirstName.Text = mItems[position].FirstName;
+
+            TextView txtLastName = row.FindViewById<TextView>(Resource.Id.txtLastName);
+            txtLastName.Text = mItems[position].LastName;
+
+            TextView txtAge = row.FindViewById<TextView>(Resource.Id.txtAge);
+            txtAge.Text = mItems[position].Age;
+
+            TextView txtGender = row.FindViewById<TextView>(Resource.Id.txtGender);
+            txtGender.Text = mItems[position].Gender;
 
             return row;
         }
