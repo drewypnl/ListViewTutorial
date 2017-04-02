@@ -25,7 +25,6 @@ namespace listViewTutorial
             mItems.Add("Kate");
             mItems.Add("Ellie");
             mItems.Add("Greg");
-            mItems.Add("Nick");
 
             ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mItems);
 
